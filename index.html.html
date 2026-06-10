@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Rekayasa Kebutuhan Lumine - Visual Edition</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f2f5f3;
+            color: #2c3e50;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Proporsi layout poster */
+        .poster {
+            width: 1250px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            padding: 35px;
+            border: 1px solid #d8e2dc;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #e8f5e9 0%, #d4edd5 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-bottom: 5px solid #7cb342;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #1b5e20;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        header h2 {
+            font-size: 16px;
+            color: #33691e;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .authors {
+            font-size: 13px;
+            color: #37474f;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* GAYA TIGA KOLOM */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 20px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* CARD DAN BOX KONTEN */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+        }
+
+        .card h3 {
+            font-size: 14px;
+            color: #1b5e20;
+            border-left: 4px solid #7cb342;
+            padding-left: 8px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        p, li {
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: #455a64;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        blockquote {
+            background: #f1f8e9;
+            border-left: 4px solid #7cb342;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 12px;
+            border-radius: 4px;
+            color: #2e7d32;
+            font-weight: 500;
+        }
+
+        /* VISUAL ELEMEN: DIAGRAM DATA STORE (KOLOM 1) */
+        .diagram-db {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .db-box {
+            background: #f9fbe7;
+            border: 1px dashed #9ccc65;
+            border-radius: 6px;
+            padding: 8px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #33691e;
+        }
+
+        /* TABEL MATRIKS (KOLOM 2) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 11px;
+        }
+
+        th, td {
+            border: 1px solid #cfd8dc;
+            padding: 6px 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            font-weight: 600;
+        }
+
+        /* VISUAL ELEMEN: DIAGRAM DEVOPS PIPELINE (KOLOM 3) */
+        .devops-pipeline {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 10px;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .pipeline-node {
+            background: #ffffff;
+            border: 1px solid #c8e6c9;
+            padding: 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            color: #2e7d32;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .pipeline-arrow {
+            text-align: center;
+            font-size: 12px;
+            color: #81c784;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        /* BOX KODE BDD */
+        .bdd-box {
+            font-family: monospace;
+            font-size: 11px;
+            background: #fafafa;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 6px;
+            border: 1px solid #cfd8dc;
+            line-height: 1.4;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 25px;
+            border-top: 2px solid #e8f5e9;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: #78909c;
+        }
+
+        .qr-section {
+            width: 80px;
+            height: 80px;
+            background: #1b5e20;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            font-size: 8.5px;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 4px;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="poster">
+    <header>
+        <h1>Evaluasi & Implementasi Arsitektur Perangkat Lunak "Lumine" Berdasarkan Spesifikasi Kebutuhan (SRS V-0.8)</h1>
+        <h2>Strategi Tim Pengembang dalam Menerjemahkan Kebutuhan Non-Fungsional dan Pembatasan Sistem</h2>
+        <div class="authors">
+            Kelompok 4: Cantika (2501697) | Diva Cindy Siahaan (2504607) | Nur Muhammad Iqbal Alfajri (2502324) | Muhamad Rizki (2505942) <br>
+            <strong>Program Studi Rekayasa Perangkat Lunak - Universitas Pendidikan Indonesia Kampus Cibiru (2026)</strong>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        
+        <div class="column">
+            <div class="card">
+                <h3>1. Ruang Lingkup & Batasan Kritis Sistem</h3>
+                <p>Kelompok kami membatasi ruang lingkup aplikasi Lumine agar tidak masuk ke ranah medis riil atau memberikan diagnosis klinis secara mandiri (NF-4 & NF-6). Kami memasang logika pengaman otomatis di sistem:</p>
+                <blockquote>
+                    Jika sub-proses evaluasi risiko (Proses 7.1) mendeteksi skor indikasi kecemasan atau depresi pengguna dari hasil analisis sentimen mencapai batas kritis (&ge; 70), fitur curhat mandiri dikunci sementara dan sistem langsung memicu rujukan kontak psikolog profesional.
+                </blockquote>
+            </div>
+
+            <div class="card">
+                <h3>2. Inklusivitas Aktor Tunanetra</h3>
+                <p>Untuk mengakomodasi kebutuhan interaksi teman-teman tunanetra, kami menerapkan pola desain antarmuka berbasis komponen mandiri:</p>
+                <ul>
+                    <li><strong>Anotasi Elemen ARIA:</strong> Semua form input dan slider penilaian mood harian ditanami tag deskripsi teks tersembunyi agar terbaca sempurna oleh aplikasi Screen Reader bawaan handphone.</li>
+                    <li><strong>Asynchronous Voice Input:</strong> Input rekaman suara pengguna dikemas dalam protokol stream lokal terlebih dahulu untuk dibersihkan dari noise sebelum dikirim sebagai teks siap pakai ke backend.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>3. Diagram Pemisahan Data Store</h3>
+                <p>Sesuai dengan pemetaan DFD Level 1, kelompok kami memisahkan penyimpanan data menjadi empat kluster store mandiri. Struktur ini dipakai untuk memudahkan enkripsi data pribadi sesuai standar keamanan:</p>
+                
+                <div class="diagram-db">
+                    <div class="db-box">🗄️ DATA AKUN<br>(Autentikasi User)</div>
+                    <div class="db-box">📊 DATA MOOD<br>(Skala Harian)</div>
+                    <div class="db-box">📝 DATA JOURNAL<br>(Catatan Privat)</div>
+                    <div class="db-box">💬 RIWAYAT CHAT<br>(Enkripsi Obrolan AI)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <h3>4. Requirements Traceability Matrix (RTM)</h3>
+                <p style="margin-bottom: 8px;">Tabel penelusuran untuk memastikan setiap kebutuhan fungsional di dokumen SRS terimplementasi sampai ke skenario uji kode akhir:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Req ID</th>
+                            <th>Deskripsi Fitur</th>
+                            <th>Proses DFD</th>
+                            <th>Solusi Teknis Tim Dev</th>
+                            <th>ID Uji (BDD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FR-8</strong></td>
+                            <td>Kirim pesan obrolan ke AI</td>
+                            <td>Proses 4.1 & 4.2</td>
+                            <td>Integrasi HTTPS REST API Stream</td>
+                            <td>TC-CHAT-01</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FR-18</strong></td>
+                            <td>Notifikasi saran psikolog</td>
+                            <td>Proses 7.1 & 7.3</td>
+                            <td>Trigger Logika Ambang Batas</td>
+                            <td>TC-WARN-03</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NF-1</strong></td>
+                            <td>Enkripsi data pengguna</td>
+                            <td>Semua Modul</td>
+                            <td>Kriptografi AES-256 bit</td>
+                            <td>TC-SEC-01</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NF-2</strong></td>
+                            <td>Respons chat AI &lt; 5 detik</td>
+                            <td>Proses 4.4</td>
+                            <td>Asynchronous Call & Caching Layer</td>
+                            <td>TC-PERF-01</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>5. Alasan Pemilihan Komponen Utama</h3>
+                <ul>
+                    <li><strong>Sisi Backend (Node.js):</strong> Kami memilih teknologi ini karena penanganan arsitektur non-blocking I/O nya sangat efisien. Sistem tidak akan mengalami lag atau hang saat menunggu respon antrean API dari server pihak ketiga (LLM), sehingga target performa NF-2 tetap aman.</li>
+                    <li><strong>Sisi Frontend (React.js):</strong> Memudahkan pengelolaan komponen antarmuka yang dinamis, khususnya untuk memperbarui grafik tren kesehatan mental secara real-time pada halaman Insight pengguna.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <h3>6. Penanganan Risiko & Kepatuhan Hukum</h3>
+                <p><strong>Optimasi Batasan Hardware:</strong> Muncul kendala performa rendering animasi latihan pernapasan (FR-13) pada handphone RAM di bawah 2 GB. Solusi kami adalah mengganti format video atau GIF berat dengan rendering data vektor berbasis kode (Lottie Files). Langkah ini berhasil memotong beban RAM hingga 75%.</p>
+                <p style="margin-top: 8px;"><strong>Kepatuhan Regulasi UU PDP:</strong> Kami memasang filter pembersih data pribadi (Sanitization Layer) sebelum teks dikirim ke luar sistem untuk menjaga privasi isi curhatan pengguna.</p>
+            </div>
+
+            <div class="card">
+                <h3>7. Pelacakan Siklus DevOps</h3>
+                <p>Kebutuhan di dalam dokumen srs diubah langsung menjadi urutan kerja otomatis di repositori pengembangan tim:</p>
+                
+                <div class="devops-pipeline">
+                    <div class="pipeline-node">📋 1. Dokumen SRS Terkunci</div>
+                    <div class="pipeline-arrow">&darr;</div>
+                    <div class="pipeline-node">🎫 2. Pembuatan Tiket Backlog (GitHub Issue)</div>
+                    <div class="pipeline-arrow">&darr;</div>
+                    <div class="pipeline-node">🌿 3. Isolasi Kode Baru (GitFlow Branch)</div>
+                    <div class="pipeline-arrow">&darr;</div>
+                    <div class="pipeline-node">🤖 4. Uji Otomatis via CI/CD Pipeline</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>8. Validasi Kebutuhan Berbasis Perilaku</h3>
+                <p>Contoh skenario uji coba untuk menjamin kecepatan respon sistem (NF-2) sebelum dinyatakan selesai:</p>
+                <div class="bdd-box">
+                    <strong>GIVEN:</strong> Pengguna menekan tombol kirim pesan curhat ke AI.<br>
+                    <strong>WHEN:</strong> Data payload diolah secara asinkronus oleh backend.<br>
+                    <strong>THEN:</strong> Komponen chat layar utama wajib memunculkan balasan dalam waktu kurang dari 5 detik.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-text">
+            *Standardisasi Dokumentasi: ISO/IEC/IEEE 29148:2018 Systems and Software Engineering | Menyelaraskan dengan UU Perlindungan Data Pribadi (UU PDP).
+        </div>
+        <div class="qr-section">
+            PINTASAN QR<br>DEMO PRODUK &<br>BERKAS SRS
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
