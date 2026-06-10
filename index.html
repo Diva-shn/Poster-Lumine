@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poster Rekayasa Kebutuhan Lumine - Visual Edition</title>
+    <title>Poster Rekayasa Kebutuhan Lumine - Humanized Edition</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         
@@ -244,8 +244,8 @@
 
 <div class="poster">
     <header>
-        <h1>Evaluasi & Implementasi Arsitektur Perangkat Lunak "Lumine" Berdasarkan Spesifikasi Kebutuhan (SRS V-0.8)</h1>
-        <h2>Strategi Tim Pengembang dalam Menerjemahkan Kebutuhan Non-Fungsional dan Pembatasan Sistem</h2>
+        <h1>Bedah Desain & Sistem Aplikasi Kesehatan Mental "Lumine" Berdasarkan Dokumen SRS V-0.8</h1>
+        <h2>Bagaimana Kelompok Kami Mengolah Aturan Kualitas Sistem dan Batasan Teknis Menjadi Solusi Nyata</h2>
         <div class="authors">
             Kelompok 4: Cantika (2501697) | Diva Cindy Siahaan (2504607) | Nur Muhammad Iqbal Alfajri (2502324) | Muhamad Rizki (2505942) <br>
             <strong>Program Studi Rekayasa Perangkat Lunak - Universitas Pendidikan Indonesia Kampus Cibiru (2026)</strong>
@@ -256,47 +256,47 @@
         
         <div class="column">
             <div class="card">
-                <h3>1. Ruang Lingkup & Batasan Kritis Sistem</h3>
-                <p>Kelompok kami membatasi ruang lingkup aplikasi Lumine agar tidak masuk ke ranah medis riil atau memberikan diagnosis klinis secara mandiri (NF-4 & NF-6). Kami memasang logika pengaman otomatis di sistem:</p>
+                <h3>1. Batasan Aplikasi & Penanganan Kondisi Darurat</h3>
+                <p>Kelompok kami menyadari sejak awal bahwa aplikasi Lumine ini bukan pengganti dokter atau layanan medis riil (NF-4 & NF-6). Makanya, kami memasang logika batasan yang tegas langsung di dalam program:</p>
                 <blockquote>
-                    Jika sub-proses evaluasi risiko (Proses 7.1) mendeteksi skor indikasi kecemasan atau depresi pengguna dari hasil analisis sentimen mencapai batas kritis (&ge; 70), fitur curhat mandiri dikunci sementara dan sistem langsung memicu rujukan kontak psikolog profesional.
+                    Kalau sistem mendeteksi tren emosi pengguna sudah masuk kategori sangat mengkhawatirkan lewat analisis tulisan jurnal (skor risiko menyentuh angka &ge; 70), fitur curhat biasa bakal dikunci sementara. Sistem langsung otomatis menampilkan saran dan nomor kontak psikolog profesional biar pengguna segera dapat bantuan yang tepat.
                 </blockquote>
             </div>
 
             <div class="card">
-                <h3>2. Inklusivitas Aktor Tunanetra</h3>
-                <p>Untuk mengakomodasi kebutuhan interaksi teman-teman tunanetra, kami menerapkan pola desain antarmuka berbasis komponen mandiri:</p>
+                <h3>2. Biar Fitur Ramah Buat Teman-Teman Tunanetra</h3>
+                <p>Agar aplikasi ini bisa diakses dengan nyaman oleh pengguna tunanetra, kami merancang antarmuka yang sangat mendukung aplikasi pembaca layar (Screen Reader):</p>
                 <ul>
-                    <li><strong>Anotasi Elemen ARIA:</strong> Semua form input dan slider penilaian mood harian ditanami tag deskripsi teks tersembunyi agar terbaca sempurna oleh aplikasi Screen Reader bawaan handphone.</li>
-                    <li><strong>Asynchronous Voice Input:</strong> Input rekaman suara pengguna dikemas dalam protokol stream lokal terlebih dahulu untuk dibersihkan dari noise sebelum dikirim sebagai teks siap pakai ke backend.</li>
+                    <li><strong>Bantuan Tag Deskripsi:</strong> Di bagian form input skala emosi (Mood Tracker), kami selipkan kode tag ARIA supaya tombol-tombolnya bisa dibaca berupa suara oleh HP pengguna dengan pas.</li>
+                    <li><strong>Fitur Input Suara:</strong> Rekaman suara curhatan pengguna diproses dulu di internal perangkat untuk dihilangkan suara berisiknya (noise), baru dikirim sebagai teks bersih ke bagian pemroses AI.</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h3>3. Diagram Pemisahan Data Store</h3>
-                <p>Sesuai dengan pemetaan DFD Level 1, kelompok kami memisahkan penyimpanan data menjadi empat kluster store mandiri. Struktur ini dipakai untuk memudahkan enkripsi data pribadi sesuai standar keamanan:</p>
+                <h3>3. Skema Pembagian Tempat Penyimpanan Data</h3>
+                <p>Mengacu pada diagram alur DFD Level 1, kelompok kami sengaja memisah-misah database simpanan menjadi empat bagian mandiri. Struktur ini sengaja kami buat demi menjaga keamanan data sensitif dan mempermudah proses enkripsi:</p>
                 
                 <div class="diagram-db">
-                    <div class="db-box">🗄️ DATA AKUN<br>(Autentikasi User)</div>
-                    <div class="db-box">📊 DATA MOOD<br>(Skala Harian)</div>
-                    <div class="db-box">📝 DATA JOURNAL<br>(Catatan Privat)</div>
-                    <div class="db-box">💬 RIWAYAT CHAT<br>(Enkripsi Obrolan AI)</div>
+                    <div class="db-box">🗄️ DATA AKUN<br>(Profil & Login)</div>
+                    <div class="db-box">📊 DATA MOOD<br>(Catatan Skala Emosi)</div>
+                    <div class="db-box">📝 DATA JOURNAL<br>(Catatan Curhat Privat)</div>
+                    <div class="db-box">💬 RIWAYAT CHAT<br>(Pesan Enkripsi AI)</div>
                 </div>
             </div>
         </div>
 
         <div class="column">
             <div class="card">
-                <h3>4. Requirements Traceability Matrix (RTM)</h3>
-                <p style="margin-bottom: 8px;">Tabel penelusuran untuk memastikan setiap kebutuhan fungsional di dokumen SRS terimplementasi sampai ke skenario uji kode akhir:</p>
+                <h3>4. Tabel Pelacakan Kebutuhan Sistem (RTM)</h3>
+                <p style="margin-bottom: 8px;">Tabel ini kelompok kami buat untuk memantau apakah semua fitur utama di dokumen SRS sudah benar-benar dibuatkan kode program dan rencana uji cobanya:</p>
                 <table>
                     <thead>
                         <tr>
-                            <th>Req ID</th>
-                            <th>Deskripsi Fitur</th>
+                            <th>ID SRS</th>
+                            <th>Nama Fitur Utama</th>
                             <th>Proses DFD</th>
-                            <th>Solusi Teknis Tim Dev</th>
-                            <th>ID Uji (BDD)</th>
+                            <th>Solusi yang Kelompok Kami Buat</th>
+                            <th>ID Uji Coba</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -304,28 +304,28 @@
                             <td><strong>FR-8</strong></td>
                             <td>Kirim pesan obrolan ke AI</td>
                             <td>Proses 4.1 & 4.2</td>
-                            <td>Integrasi HTTPS REST API Stream</td>
+                            <td>Menghubungkan teks lewat jalur API HTTPS</td>
                             <td>TC-CHAT-01</td>
                         </tr>
                         <tr>
                             <td><strong>FR-18</strong></td>
-                            <td>Notifikasi saran psikolog</td>
+                            <td>Muncul notifikasi saran psikolog</td>
                             <td>Proses 7.1 & 7.3</td>
-                            <td>Trigger Logika Ambang Batas</td>
+                            <td>Logika otomatis saat skor bahaya terlampaui</td>
                             <td>TC-WARN-03</td>
                         </tr>
                         <tr>
                             <td><strong>NF-1</strong></td>
-                            <td>Enkripsi data pengguna</td>
+                            <td>Keamanan enkripsi data user</td>
                             <td>Semua Modul</td>
-                            <td>Kriptografi AES-256 bit</td>
+                            <td>Penguncian file pakai kriptografi AES-256</td>
                             <td>TC-SEC-01</td>
                         </tr>
                         <tr>
                             <td><strong>NF-2</strong></td>
-                            <td>Respons chat AI &lt; 5 detik</td>
+                            <td>Balasan chat AI di bawah 5 detik</td>
                             <td>Proses 4.4</td>
-                            <td>Asynchronous Call & Caching Layer</td>
+                            <td>Proses antrean data asinkronus agar anti lag</td>
                             <td>TC-PERF-01</td>
                         </tr>
                     </tbody>
@@ -333,43 +333,43 @@
             </div>
 
             <div class="card">
-                <h3>5. Alasan Pemilihan Komponen Utama</h3>
+                <h3>5. Alasan Memilih Komponen Teknologi</h3>
                 <ul>
-                    <li><strong>Sisi Backend (Node.js):</strong> Kami memilih teknologi ini karena penanganan arsitektur non-blocking I/O nya sangat efisien. Sistem tidak akan mengalami lag atau hang saat menunggu respon antrean API dari server pihak ketiga (LLM), sehingga target performa NF-2 tetap aman.</li>
-                    <li><strong>Sisi Frontend (React.js):</strong> Memudahkan pengelolaan komponen antarmuka yang dinamis, khususnya untuk memperbarui grafik tren kesehatan mental secara real-time pada halaman Insight pengguna.</li>
+                    <li><strong>Kenapa Pakai Node.js di Backend?:</strong> Kami memilih platform ini karena kinerjanya sangat ringan dalam menangani banyak proses sekaligus. Jadi, pas sistem lagi sibuk menunggu jawaban dari server AI luar, aplikasi pengguna lain tidak akan terasa macet atau hang (NF-2 aman).</li>
+                    <li><strong>Kenapa Pakai React.js di Frontend?:</strong> Pilihan ini mempermudah kelompok kami membuat tampilan grafik mingguan yang interaktif dan berubah otomatis sesuai isi mood terbaru pada halaman Insight pengguna.</li>
                 </ul>
             </div>
         </div>
 
         <div class="column">
             <div class="card">
-                <h3>6. Penanganan Risiko & Kepatuhan Hukum</h3>
-                <p><strong>Optimasi Batasan Hardware:</strong> Muncul kendala performa rendering animasi latihan pernapasan (FR-13) pada handphone RAM di bawah 2 GB. Solusi kami adalah mengganti format video atau GIF berat dengan rendering data vektor berbasis kode (Lottie Files). Langkah ini berhasil memotong beban RAM hingga 75%.</p>
-                <p style="margin-top: 8px;"><strong>Kepatuhan Regulasi UU PDP:</strong> Kami memasang filter pembersih data pribadi (Sanitization Layer) sebelum teks dikirim ke luar sistem untuk menjaga privasi isi curhatan pengguna.</p>
+                <h3>6. Solusi Kendala Teknis & Privasi Data</h3>
+                <p><strong>Aplikasi Lemot di HP Spek Rendah:</strong> Sempat ada masalah saat memuat animasi latihan pernapasan (FR-13) di HP dengan RAM di bawah 2 GB. Kelompok kami mengakalinya dengan mengganti file video berat menjadi file grafik vektor berbasis data kode (Lottie Files). Hasilnya, beban kerja RAM berhasil dihemat sampai 75%.</p>
+                <p style="margin-top: 8px;"><strong>Perlindungan Data Sesuai UU PDP:</strong> Kami memasang lapisan penyaring otomatis untuk menghapus info pribadi (seperti nomor kontak atau alamat asli) sebelum data obrolan dikirim demi menjaga rahasia pengguna.</p>
             </div>
 
             <div class="card">
-                <h3>7. Pelacakan Siklus DevOps</h3>
-                <p>Kebutuhan di dalam dokumen srs diubah langsung menjadi urutan kerja otomatis di repositori pengembangan tim:</p>
+                <h3>7. Alur Kerja Pengembangan Tim (DevOps)</h3>
+                <p>Biar kerja tim kami rapi, semua poin kebutuhan di dokumen SRS langsung diubah jadi tugas otomatis di dalam sistem pengerjaan kode:</p>
                 
                 <div class="devops-pipeline">
-                    <div class="pipeline-node">📋 1. Dokumen SRS Terkunci</div>
+                    <div class="pipeline-node">📋 1. Dokumen SRS Sudah Deal</div>
                     <div class="pipeline-arrow">&darr;</div>
-                    <div class="pipeline-node">🎫 2. Pembuatan Tiket Backlog (GitHub Issue)</div>
+                    <div class="pipeline-node">🎫 2. Diurai Jadi Tugas Kelompok (GitHub Issue)</div>
                     <div class="pipeline-arrow">&darr;</div>
-                    <div class="pipeline-node">🌿 3. Isolasi Kode Baru (GitFlow Branch)</div>
+                    <div class="pipeline-node">🌿 3. Pengerjaan Fitur di Folder Pisah (Git Branch)</div>
                     <div class="pipeline-arrow">&darr;</div>
-                    <div class="pipeline-node">🤖 4. Uji Otomatis via CI/CD Pipeline</div>
+                    <div class="pipeline-node">🤖 4. Dicek Otomatis Lewat Sistem Pengujian</div>
                 </div>
             </div>
 
             <div class="card">
-                <h3>8. Validasi Kebutuhan Berbasis Perilaku</h3>
-                <p>Contoh skenario uji coba untuk menjamin kecepatan respon sistem (NF-2) sebelum dinyatakan selesai:</p>
+                <h3>8. Contoh Pengujian Fitur di Lapangan</h3>
+                <p>Ini adalah format pengujian perilaku sistem yang kami pakai untuk membuktikan kecepatan respon balasan AI (NF-2) sebelum dirilis:</p>
                 <div class="bdd-box">
-                    <strong>GIVEN:</strong> Pengguna menekan tombol kirim pesan curhat ke AI.<br>
-                    <strong>WHEN:</strong> Data payload diolah secara asinkronus oleh backend.<br>
-                    <strong>THEN:</strong> Komponen chat layar utama wajib memunculkan balasan dalam waktu kurang dari 5 detik.
+                    <strong>KONDISI AWAL:</strong> Pengguna beres mengetik pesan dan menekan tombol kirim.<br>
+                    <strong>SAAT PROSES:</strong> Data teks dikirim dan diolah di backend secara asinkronus.<br>
+                    <strong>HASIL AKHIR:</strong> Kolom chat di layar wajib memunculkan teks balasan dalam waktu kurang dari 5 detik.
                 </div>
             </div>
         </div>
@@ -378,10 +378,10 @@
 
     <footer>
         <div class="footer-text">
-            *Standardisasi Dokumentasi: ISO/IEC/IEEE 29148:2018 Systems and Software Engineering | Menyelaraskan dengan UU Perlindungan Data Pribadi (UU PDP).
+            *Acuan Aturan: Struktur penyusunan disesuaikan dengan panduan standar ISO/IEC/IEEE 29148:2018 serta regulasi hukum UU Perlindungan Data Pribadi (UU PDP).
         </div>
         <div class="qr-section">
-            PINTASAN QR<br>DEMO PRODUK &<br>BERKAS SRS
+            SCAN DI SINI<br>UNTUK DEMO &<br>BERKAS SRS
         </div>
     </footer>
 </div>
